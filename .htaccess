@@ -1,0 +1,9 @@
+RewriteEngine on
+# /new added to both commands during development
+# If requested URL-path plus ".php" exists as a file
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+# Rewrite to append ".php" to extensionless URL-path
+RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+
+#custom error document
+ErrorDocument 404 /404.php
